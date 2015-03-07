@@ -30,7 +30,7 @@
   "devDependencies": {
     "hapi": "^8.2.0",
     "jscs": "^1.11.3",
-    "mocha": "^2.1.0"
+    "mocha": "^2.2.0"
   },
   "dependencies": {
     "mongojs": "^0.18.2"

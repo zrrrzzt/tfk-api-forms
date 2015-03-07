@@ -17,7 +17,8 @@ function addTemplate(request, reply) {
 }
 
 function getTemplate(request, reply) {
-  templates.find({_id:mongojs.ObjectId(request.params.templateId)}, function(err, data) {
+  var id = mongojs.ObjectId(request.params.templateId);
+  templates.find({_id: id}, function(err, data) {
     if (err) {
       reply(err);
     } else {
@@ -27,7 +28,8 @@ function getTemplate(request, reply) {
 }
 
 function updateTemplate(request, reply) {
-  templates.update({_id:mongojs.ObjectId(request.params.templateId)}, request.payload, function(err, data) {
+  var id = mongojs.ObjectId(request.params.templateId);
+  templates.update({_id:id}, request.payload, function(err, data) {
     if (err) {
       reply(err);
     } else {
@@ -37,7 +39,8 @@ function updateTemplate(request, reply) {
 }
 
 function deleteTemplate(request, reply) {
-  templates.remove({_id:mongojs.ObjectId(request.params.templateId)}, function(err, data) {
+  var id = mongojs.ObjectId(request.params.templateId);
+  templates.remove({_id: id}, function(err, data) {
     if (err) {
       reply(err);
     } else {
@@ -67,7 +70,8 @@ function addForm(request, reply) {
 }
 
 function getForm(request, reply) {
-  forms.find({_id:mongojs.ObjectId(request.params.formId)}, function(err, data) {
+  var id = mongojs.ObjectId(request.params.formId);
+  forms.find({_id:id}, function(err, data) {
     if (err) {
       reply(err);
     } else {
@@ -77,7 +81,8 @@ function getForm(request, reply) {
 }
 
 function updateForm(request, reply) {
-  forms.update({_id:mongojs.ObjectId(request.params.formId)}, request.payload, function(err, data) {
+  var id = mongojs.ObjectId(request.params.formId);
+  forms.update({_id:id}, request.payload, function(err, data) {
     if (err) {
       reply(err);
     } else {
@@ -87,7 +92,8 @@ function updateForm(request, reply) {
 }
 
 function deleteForm(request, reply) {
-  forms.remove({_id:mongojs.ObjectId(request.params.formId)}, function(err, data) {
+  var id = mongojs.ObjectId(request.params.formId);
+  forms.remove({_id: id}, function(err, data) {
     if (err) {
       reply(err);
     } else {
