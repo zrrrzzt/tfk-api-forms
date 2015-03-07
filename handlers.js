@@ -49,6 +49,9 @@ module.exports.deleteTemplate = deleteTemplate;
 module.exports.getTemplates = getTemplates;
 
 module.exports.getForms = getForms;
+
 module.exports.getForm = getForm;
+
 module.exports.putForm = putForm;
+
 module.exports.deleteForm = deleteForm;
