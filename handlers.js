@@ -1,53 +1,109 @@
 'use strict';
 
+var mongojs = require('mongojs');
+var config = require('./config');
+var db = mongojs(config.DB);
+var forms = db.collection('forms');
+var templates = db.collection('formtemplates');
+
 function addTemplate(request, reply) {
-  console.log(request.params.templateId);
-  reply('Oooohhhh, new template');
+  templates.save(request.payload, function(err, docs) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(docs);
+    }
+  });
 }
 
 function getTemplate(request, reply) {
-  console.log(request.params.templateId);
-  reply('Heres a template');
+  templates.find({_id:mongojs.ObjectId(request.params.templateId)}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function updateTemplate(request, reply) {
-  console.log(request.params.templateId);
-  reply('Template updated, sir');
+  templates.update({_id:mongojs.ObjectId(request.params.templateId)}, request.payload, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function deleteTemplate(request, reply) {
-  console.log(request.params);
-  reply('Oooohhhh, This template is so gone');
+  templates.remove({_id:mongojs.ObjectId(request.params.templateId)}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function getTemplates(request, reply) {
-  console.log(request.params);
-  reply('Heres all the templates');
+  templates.find({}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function addForm(request, reply) {
-  console.log(request.params.formId);
-  reply('Oooohhhh, new form added');
+  forms.save(request.payload, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function getForm(request, reply) {
-  console.log(request.params.formId);
-  reply('Heres the form');
+  forms.find({_id:mongojs.ObjectId(request.params.formId)}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function updateForm(request, reply) {
-  console.log(request.params.formId);
-  reply('Form updated, madam');
+  forms.update({_id:mongojs.ObjectId(request.params.formId)}, request.payload, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function deleteForm(request, reply) {
-  console.log(request.params);
-  reply('Oooohhhh, This form is so gone');
+  forms.remove({_id:mongojs.ObjectId(request.params.formId)}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 function getForms(request, reply) {
-  console.log(request.params);
-  reply('Heres all the forms');
+  forms.find({}, function(err, data) {
+    if (err) {
+      reply(err);
+    } else {
+      reply(data);
+    }
+  });
 }
 
 module.exports.addTemplate = addTemplate;
