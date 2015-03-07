@@ -1,13 +1,18 @@
 'use strict';
 
+function addTemplate(request, reply) {
+  console.log(request.params.templateId);
+  reply('Oooohhhh, new template');
+}
+
 function getTemplate(request, reply) {
   console.log(request.params.templateId);
   reply('Heres a template');
 }
 
-function putTemplate(request, reply) {
+function updateTemplate(request, reply) {
   console.log(request.params.templateId);
-  reply('Oooohhhh, new template');
+  reply('Template updated, sir');
 }
 
 function deleteTemplate(request, reply) {
@@ -17,7 +22,12 @@ function deleteTemplate(request, reply) {
 
 function getTemplates(request, reply) {
   console.log(request.params);
-  reply('Heres all the template');
+  reply('Heres all the templates');
+}
+
+function addForm(request, reply) {
+  console.log(request.params.formId);
+  reply('Oooohhhh, new form added');
 }
 
 function getForm(request, reply) {
@@ -25,14 +35,14 @@ function getForm(request, reply) {
   reply('Heres the form');
 }
 
-function putForm(request, reply) {
+function updateForm(request, reply) {
   console.log(request.params.formId);
-  reply('Oooohhhh, new efrm added');
+  reply('Form updated, madam');
 }
 
 function deleteForm(request, reply) {
   console.log(request.params);
-  reply('Oooohhhh, This template is so gone');
+  reply('Oooohhhh, This form is so gone');
 }
 
 function getForms(request, reply) {
@@ -40,18 +50,22 @@ function getForms(request, reply) {
   reply('Heres all the forms');
 }
 
+module.exports.addTemplate = addTemplate;
+
 module.exports.getTemplate = getTemplate;
 
-module.exports.putTemplate = putTemplate;
+module.exports.updateTemplate = updateTemplate;
 
 module.exports.deleteTemplate = deleteTemplate;
 
 module.exports.getTemplates = getTemplates;
 
-module.exports.getForms = getForms;
+module.exports.addForm = addForm;
 
 module.exports.getForm = getForm;
 
-module.exports.putForm = putForm;
+module.exports.updateForm = updateForm;
 
 module.exports.deleteForm = deleteForm;
+
+module.exports.getForms = getForms;
